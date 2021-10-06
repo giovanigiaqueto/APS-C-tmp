@@ -1,0 +1,6 @@
+# ignora alguns arquivos de editores de texto,
+# do sistema, e outros
+.vscode
+.directory
+# ignora o executável principal
+main
