@@ -5,15 +5,6 @@
 #include <string.h>
 #include <stdlib.h>
 
-typedef struct {
-	char*           linha;
-	ListaLinhas_No* proximo;
-} ListaLinhas_No;
-typedef struct {
-	unsigned int    comprimento;
-	ListaLinhas_No* dados;
-} ListaLinhas;
-
 char** ler_arquivo(const char* arquivo, unsigned int* qtd_linhas) {
 
 	FILE* fp = fopen(arquivo);
@@ -39,9 +30,6 @@ char** ler_arquivo(const char* arquivo, unsigned int* qtd_linhas) {
 		return NULL;
 	}
 
-	ListaLinhas linhas;
-	linhas.comprimento = 0;
-	linhas.dados       = NULL;
 
 	size_t pos_atual = 0;
 	size_t pos_nova  = 0;
