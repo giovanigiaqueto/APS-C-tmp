@@ -26,7 +26,7 @@ char** ler_arquivo(const char* arquivo, unsigned int* qtd_linhas) {
 
 	if (fread(buffer, tamanho, 1, fp) < tamanho) {
 		free(buffer);
-		fprintf(stderr, "erro: nao foi possivel ler o arquivo %s\n", arquivo);
+		fprintf(stderr, "erro: não foi possível ler o arquivo %s\n", arquivo);
 		return NULL;
 	}
 
@@ -41,6 +41,8 @@ char** ler_arquivo(const char* arquivo, unsigned int* qtd_linhas) {
 		}
 		size_t pos_nova = chr - buffer;
 		size_t comp_linha = pos_nova - pos_atual;
+
+		// copia a linha
 		char* linha = malloc(comp_linha + 1);
 		if (linha == NULL) {
 			// TODO: voltar aqui
