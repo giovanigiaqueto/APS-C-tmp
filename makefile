@@ -8,8 +8,11 @@ INCDIR=inc
 CFLAGS=-Wall -std=c11 -I$(INCDIR)/
 
 # modulos e executável principal
-modulos=$(addprefix $(OBJDIR)/, main.o)
+modulos=$(addprefix $(OBJDIR)/, main.o ler_arquivo.o ordenacao_bolha.o)
 alvo=main
+
+# regra principal de compilação
+all: $(alvo)
 
 # regra de compilação do executável
 $(alvo): $(modulos)
