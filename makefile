@@ -14,6 +14,10 @@ alvo=main
 # regra principal de compilação
 all: $(alvo)
 
+# regra para compilar o programa para depuração
+debug: CFLAGS+=-g
+debug: all
+
 # regra de compilação do executável
 $(alvo): $(modulos)
 	@echo "linkando '$(notdir $(alvo))'"
@@ -22,7 +26,7 @@ $(alvo): $(modulos)
 # regra de compilação dos modulos
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	@echo "compilando '$(notdir $<)'"
-	@$(CC) -c -o $@ $<
+	@$(CC) -c -o $@ $< $(CFLAGS)
 
 # adiciona regras de dependencia entre arquivos
 include deps.mk
@@ -31,4 +35,3 @@ include deps.mk
 limpar:
 	@echo "removendo objetos de compilação"
 	@$(RM) -f $(modulos)
-
