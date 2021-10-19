@@ -17,9 +17,6 @@ typedef struct {
 } Pilha;
 
 int __ordenar_quick_sort(char** linhas, unsigned int esquerda, unsigned int direita) {
-	unsigned int i = esquerda;
-	unsigned int j = direita;
-
 	Pilha pilha;
 
 	ValorPilha* _valor = malloc(sizeof(ValorPilha));
@@ -41,6 +38,9 @@ int __ordenar_quick_sort(char** linhas, unsigned int esquerda, unsigned int dire
 		free((void*) valor);
 
 		char* x = linhas[(esquerda + direita) / 2];
+
+		unsigned int i = esquerda;
+		unsigned int j = direita;
 
 		while (i <= j) {
 			while (strcmp(linhas[i], x) < 0 && i < direita) {
