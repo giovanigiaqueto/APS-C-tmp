@@ -1,6 +1,8 @@
 
 #include "quick_sort.h"
 
+Algoritimo alg_quick_sort = { ALG_VETOR, ordenar_quick_sort };
+
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
