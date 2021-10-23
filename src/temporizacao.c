@@ -1,8 +1,9 @@
 
-#include "temporizar.h"
+#include "temporizacao.h"
 
 #include <time.h>
 #include <stdlib.h>
+#include <string.h>
 
 int temporizar(char** linhas, unsigned int qtd_linhas,
 		Algoritimo alg, tempo_t* tempo) {
@@ -16,7 +17,7 @@ int temporizar(char** linhas, unsigned int qtd_linhas,
 		memcpy(linhas_copia, linhas, qtd_linhas);
 
 		t0 = clock();
-		alg.func.alg_vetor();
+		alg.func.alg_vetor(linhas_copia, qtd_linhas);
 		t1 = clock();
 
 		free((void*) linhas_copia);
@@ -26,7 +27,7 @@ int temporizar(char** linhas, unsigned int qtd_linhas,
 		ListaLinhas* lista = criar_lista_linhas();
 		if (lista == NULL) return -1;
 
-		ListaLinhas_No* base = lista.base;
+		ListaLinhas_No* base = lista->base;
 		for (unsigned int idx = 0; idx < qtd_linhas; ++idx) {
 			if (inserir_lista_linhas(&base, linhas[idx]) != 0) {
 				deletar_lista_linhas(lista);
