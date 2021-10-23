@@ -12,7 +12,7 @@ ListaLinhas* criar_lista_linhas() {
 }
 
 void deletar_lista_linhas(ListaLinhas* lista) {
-	ListaLinhas* no = lista->base;
+	ListaLinhas_No* no = lista->base;
 	while (no != NULL) {
 		ListaLinhas* proximo = no->proximo;
 		no->proximo = NULL;
@@ -25,7 +25,7 @@ int inserir_lista_linhas(ListaLinhas_No** base, char* linha) {
 	ListaLinhas_No* no = malloc(sizeof(ListaLinhas_No));
 	if (no == NULL) return -1;
 
-	no->proximo = (*base)->proximo;
+	no->proximo = *base;
 	no->linha   = linha;
 
 	*base = no;

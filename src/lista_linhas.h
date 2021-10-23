@@ -10,4 +10,12 @@ typedef struct ListaLinhas {
 	ListaLinhas_No* base;
 } ListaLinhas;
 
+ListaLinhas* criar_lista_linhas();
+
+void deletar_lista_linhas(ListaLinhas* lista);
+
+int inserir_lista_linhas(ListaLinhas_No** base, char* linha);
+
+int remover_lista_linhas(ListaLinhas_No** base);
+
 #endif
