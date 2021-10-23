@@ -2,8 +2,8 @@
 #define __LISTA_LINHAS_H
 
 typedef struct ListaLinhas_No {
-	char*           linha;
-	ListaLinhas_No* proximo;
+	char*                  linha;
+	struct ListaLinhas_No* proximo;
 } ListaLinhas_No;
 
 typedef struct ListaLinhas {
