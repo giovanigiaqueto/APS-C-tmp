@@ -23,7 +23,7 @@ char** ler_arquivo(const char* arquivo, unsigned int* qtd_linhas) {
 	char* buffer = malloc(tamanho);
 	if (buffer == NULL) {
 		*qtd_linhas = 0;
-		fprintf(stderr, "erro: sem memoria o suficiente para ler o arquivo %s\n", tamanho);
+		fprintf(stderr, "erro: sem memoria o suficiente para ler o arquivo %s\n", arquivo);
 		return NULL;
 	}
 
