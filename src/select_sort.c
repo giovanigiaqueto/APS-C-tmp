@@ -3,7 +3,7 @@
 
 #include <string.h>
 
-void ordenar_select_sort(char** linhas, unsigned int qtd_linhas){
+int ordenar_select_sort(char** linhas, unsigned int qtd_linhas){
   unsigned int menor;
 	char* aux;
 

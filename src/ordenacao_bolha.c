@@ -3,7 +3,7 @@
 
 #include <string.h>
 
-void ordenar_bolha(char** linhas, unsigned int qtd_linhas) {
+int ordenar_bolha(char** linhas, unsigned int qtd_linhas) {
 	int repetir;
 	do {
 		repetir = 0;
@@ -17,4 +17,6 @@ void ordenar_bolha(char** linhas, unsigned int qtd_linhas) {
 			}
 		}
 	} while(repetir);
+
+	return 0;
 }
