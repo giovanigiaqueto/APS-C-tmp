@@ -1,24 +1,28 @@
 #include "insertion_sort.h"
 
+#include <string.h>
+#include <stdio.h>
+
 int insertion_sort(ListaLinhas* lista, unsigned int qtd_int){
-    ListaLinhas_No* no_linha = lista->base;
-    while  (no_linha != NULL)
+    ListaLinhas_No** no_linha = &(lista->base);
+    while  (*no_linha != NULL)
     {
-		ListaLinhas_No* proximo = no_linha->proximo;
-		remover_lista_linhas(&no_linha);
-		ListaLinhas_No* no_linha2 = lista->base;
-		do
+		ListaLinhas_No** no_linha2 = &(lista->base);
+		int movido = 0;
+		while (no_linha2 != no_linha)
 		{
-			if (strcmp (no_linha->linha, no_linha2->proximo->linha) < 0) 
+			if (strcmp ((*no_linha)->linha, (*no_linha2)->linha) < 0) 
 			{
-				inserir_lista_linhas(&no_linha2, no_linha->linha);
-				free ((void*) no_linha);
+				if (mover_lista_linhas(no_linha2, no_linha) != 0) return -1;
+				movido = 1;
 				break;
 			}
+			no_linha2 = &((*no_linha2)->proximo);
 		}
-		while (no_linha2->proximo != proximo);
-		no_linha = proximo;
+		if (!movido) no_linha = &((*no_linha)->proximo);
     }
-    
+
+    return 0;
 }
 
+Algoritimo alg_insert_sort = { ALG_LISTA, (void*) insertion_sort };
