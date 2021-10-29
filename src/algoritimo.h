@@ -1,3 +1,5 @@
+#ifndef __ALGORITIMO_H
+#define __ALGORITIMO_H
 
 #include "lista_linhas.h"
 
@@ -15,3 +17,5 @@ typedef struct Algoritimo {
 	TipoAlgoritimo tipo;
 	FuncAlgoritimo func;
 } Algoritimo;
+
+#endif
