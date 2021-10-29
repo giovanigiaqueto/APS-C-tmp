@@ -27,13 +27,13 @@ int temporizar(char** linhas, unsigned int qtd_linhas,
 		ListaLinhas* lista = criar_lista_linhas();
 		if (lista == NULL) return -1;
 
-		ListaLinhas_No* base = lista->base;
+		ListaLinhas_No** base = &lista->base;
 		for (unsigned int idx = 0; idx < qtd_linhas; ++idx) {
-			if (inserir_lista_linhas(&base, linhas[idx]) != 0) {
+			if (inserir_lista_linhas(base, linhas[idx]) != 0) {
 				deletar_lista_linhas(lista);
 				return -1;
 			}
-			base = &(base->proximo);
+			base = &(*base)->proximo;
 		}
 
 		t0 = clock();
@@ -43,5 +43,6 @@ int temporizar(char** linhas, unsigned int qtd_linhas,
 		deletar_lista_linhas(lista);
 	}
 
-	return (tempo_t) (t1 - t0) / CLOCKS_PER_SEC;
+	*tempo = (tempo_t) (t1 - t0) / CLOCKS_PER_SEC;
+	return 0;
 }
