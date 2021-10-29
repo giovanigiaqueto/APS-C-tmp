@@ -38,6 +38,7 @@ int remover_lista_linhas(ListaLinhas_No** base) {
 	if (no == NULL) return -1;
 
 	*base = no->proximo;
+	no->proximo = NULL;
 	free((void*) no);
 	return 0;
 }
