@@ -41,3 +41,19 @@ int remover_lista_linhas(ListaLinhas_No** base) {
 	free((void*) no);
 	return 0;
 }
+
+int mover_lista_linhas(ListaLinhas_No** dest, ListaLinhas_No** orig) {
+	if (dest == NULL || *dest == NULL) return -1;
+	if (orig == NULL || *orig == NULL) return -1;
+
+	ListaLinhas_No* no = *orig;
+
+	// remoção do no *orig
+	*orig = no->proximo;
+
+	// inserção do no em *dest
+	no->proximo = *dest;
+	*dest = no;
+
+	return 0;
+}

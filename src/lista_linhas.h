@@ -18,4 +18,6 @@ int inserir_lista_linhas(ListaLinhas_No** base, char* linha);
 
 int remover_lista_linhas(ListaLinhas_No** base);
 
+int mover_lista_linhas(ListaLinhas_No** dest, ListaLinhas_No** orig);
+
 #endif
