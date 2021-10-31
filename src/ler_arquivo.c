@@ -50,7 +50,7 @@ char** ler_arquivo(const char* arquivo, unsigned int* qtd_linhas) {
 	if (linhas == NULL) {
 		*qtd_linhas = 0;
 		free(buffer);
-		fprintf(stderr, "erro: sem memória o suficiente para ler o arquivo %s\n", tamanho);
+		fprintf(stderr, "erro: sem memória o suficiente para ler o arquivo %s\n", arquivo);
 		return NULL;
 	}
 
