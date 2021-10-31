@@ -3,7 +3,7 @@
 
 #include <string.h>
 
-Algoritimo alg_buble_sort = { ALG_VETOR, ordenar_bolha };
+Algoritimo alg_buble_sort = { ALG_VETOR, .func.alg_vetor = ordenar_bolha };
 
 int ordenar_bolha(char** linhas, unsigned int qtd_linhas) {
 	int repetir;

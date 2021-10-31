@@ -25,4 +25,4 @@ int insertion_sort(ListaLinhas* lista, unsigned int qtd_int){
     return 0;
 }
 
-Algoritimo alg_insert_sort = { ALG_LISTA, (void*) insertion_sort };
+Algoritimo alg_insert_sort = { ALG_LISTA, .func.alg_lista = insertion_sort };
