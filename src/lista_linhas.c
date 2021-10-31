@@ -14,7 +14,7 @@ ListaLinhas* criar_lista_linhas() {
 void deletar_lista_linhas(ListaLinhas* lista) {
 	ListaLinhas_No* no = lista->base;
 	while (no != NULL) {
-		ListaLinhas* proximo = no->proximo;
+		ListaLinhas_No* proximo = no->proximo;
 		no->proximo = NULL;
 		free((void*) no);
 		no = proximo;
