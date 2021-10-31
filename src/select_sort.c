@@ -21,4 +21,6 @@ int ordenar_select_sort(char** linhas, unsigned int qtd_linhas){
       linhas[menor] = aux;
     }
   }
+
+  return 0;
 }
