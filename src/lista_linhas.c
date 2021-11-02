@@ -3,15 +3,11 @@
 
 #include <stdlib.h>
 
-ListaLinhas* criar_lista_linhas() {
-	ListaLinhas* lista = malloc(sizeof(ListaLinhas));
-	if (lista != NULL) {
-		lista->base = NULL;
-	}
-	return lista;
+void inicia_lista_linhas(ListaLinhas* lista) {
+	lista->base = NULL;
 }
 
-void deletar_lista_linhas(ListaLinhas* lista) {
+void finaliza_lista_linhas(ListaLinhas* lista) {
 	ListaLinhas_No* no = lista->base;
 	while (no != NULL) {
 		ListaLinhas_No* proximo = no->proximo;
@@ -19,6 +15,18 @@ void deletar_lista_linhas(ListaLinhas* lista) {
 		free((void*) no);
 		no = proximo;
 	}
+	lista->base = NULL;
+}
+
+ListaLinhas* criar_lista_linhas() {
+	ListaLinhas* lista = malloc(sizeof(ListaLinhas));
+	if (lista != NULL) inicia_lista_linhas(lista);
+	return lista;
+}
+
+void deletar_lista_linhas(ListaLinhas* lista) {
+	finaliza_lista_linhas(lista);
+	free((void*) lista);
 }
 
 int inserir_lista_linhas(ListaLinhas_No** base, char* linha) {

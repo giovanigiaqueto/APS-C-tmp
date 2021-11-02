@@ -10,6 +10,12 @@ typedef struct ListaLinhas {
 	ListaLinhas_No* base;
 } ListaLinhas;
 
+// inicia uma lista de linhas previamente alocada
+void inicia_lista_linhas(ListaLinhas* lista);
+
+// finaliza uma lista de linhas previamente alocada
+void finaliza_lista_linhas(ListaLinhas* lista);
+
 // aloca e inicializa uma lista de linhas na heap
 ListaLinhas* criar_lista_linhas();
 
