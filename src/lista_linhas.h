@@ -8,6 +8,7 @@ typedef struct ListaLinhas_No {
 
 typedef struct ListaLinhas {
 	ListaLinhas_No* base;
+	ListaLinhas_No* fim;
 } ListaLinhas;
 
 // inicia uma lista de linhas previamente alocada
@@ -31,5 +32,8 @@ int remover_lista_linhas(ListaLinhas_No** base);
 // move uma linha dentro de uma lista de
 // linhas ou entre duas lista de linhas
 int mover_lista_linhas(ListaLinhas_No** dest, ListaLinhas_No** orig);
+
+// concatena uma lista de linhas no final de uma lista de linhas
+int concat_lista_linhas(ListaLinhas* dest, ListaLinhas* orig);
 
 #endif

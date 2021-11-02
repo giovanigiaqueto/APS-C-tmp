@@ -5,6 +5,7 @@
 
 void inicia_lista_linhas(ListaLinhas* lista) {
 	lista->base = NULL;
+	lista->fim  = NULL;
 }
 
 void finaliza_lista_linhas(ListaLinhas* lista) {
@@ -16,6 +17,7 @@ void finaliza_lista_linhas(ListaLinhas* lista) {
 		no = proximo;
 	}
 	lista->base = NULL;
+	lista->fim  = NULL;
 }
 
 ListaLinhas* criar_lista_linhas() {
@@ -65,3 +67,25 @@ int mover_lista_linhas(ListaLinhas_No** dest, ListaLinhas_No** orig) {
 
 	return 0;
 }
+
+int concat_lista_linhas(ListaLinhas* restrict dest, ListaLinhas* restrict orig) {
+	if (dest == NULL || orig == NULL) return -1;
+
+	if (dest->fim == NULL) {
+		// transeferência simples
+		dest->base = orig->base;
+		dest->fim  = orig->fim;
+	} else {
+		// inserção no fim
+		if (dest->fim->proximo != NULL) return -2;
+		dest->fim->proximo = orig->base;
+		dest->fim = orig->fim;
+	}
+
+	// 'limpa' a segunda lista
+	orig->base = NULL;
+	orig->fim = NULL;
+
+	return 0;
+}
+
