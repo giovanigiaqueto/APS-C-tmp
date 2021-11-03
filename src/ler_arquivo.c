@@ -5,8 +5,19 @@
 #include <string.h>
 #include <stdlib.h>
 
+/**
+ * lê as linhas de um arquivo em um vetor,
+ * e retorna a quantidade de linhas lidas.
+ *
+ * @param arquivo nome do arquivo a ser lido
+ * @param qtd_linhas ponteiro para retornar
+ *      a quantidade de linhas lidas.
+ *
+ * @returns as linhas lidas
+ */
 char** ler_arquivo(const char* arquivo, unsigned int* qtd_linhas) {
 
+	// tenta abrir o arquivo
 	FILE* fp = fopen(arquivo, "r");
 	if (fp == NULL) {
 		*qtd_linhas = 0;
@@ -46,6 +57,7 @@ char** ler_arquivo(const char* arquivo, unsigned int* qtd_linhas) {
 		if (buffer[i] == '\n') ++_qtd_linhas;
 	}
 
+	// aloca o buffer para conter as linhas lidas
 	char** linhas = malloc(_qtd_linhas * sizeof(char*));
 	if (linhas == NULL) {
 		*qtd_linhas = 0;
@@ -54,12 +66,12 @@ char** ler_arquivo(const char* arquivo, unsigned int* qtd_linhas) {
 		return NULL;
 	}
 
+	// separa o texto lido em linhas usando '\n' como separador
 	size_t pos_atual = 0;
 	size_t pos_nova  = 0;
 	unsigned int linha_atual = 0;
-
 	while (pos_atual < tamanho) {
-		/* calcula o tamanho e posição da linha atual */
+		// calcula o tamanho e posição da linha atual
 		char* chr = strchr(&buffer[pos_atual], '\n');
 		if (chr == NULL) {
 			pos_nova = tamanho - 1;
@@ -88,8 +100,10 @@ char** ler_arquivo(const char* arquivo, unsigned int* qtd_linhas) {
 		++linha_atual;
 	}
 
+	// libera o buffer do texto bruto
+	// e retorna as linhas lidas.
 	free(buffer);
-
 	*qtd_linhas = _qtd_linhas;
 	return linhas;
 }
+
