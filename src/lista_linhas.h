@@ -11,6 +11,22 @@ typedef struct ListaLinhas {
 	ListaLinhas_No* fim;
 } ListaLinhas;
 
+/* ----- ----- ----- ----- ----- ----- ----- ----- //
+
+AVISO:
+	devido a adição de um ponteiro para o fim da lista
+	de linhas, e a complexidade de implementar funções
+	que manipulem esse ponteiro corretamente em alguns
+	casos sem prejudicar a performance, todo código
+	que manipular esse ponteiro deve fazê-lo também
+	para cada uma das funções desse módulo que irão
+	ser utilizadas. Além disso, cada módulo que use
+	esse módulo deve ter documentado se esse ponteiro
+	é usado (a ausência de um aviso será considerada
+	como não utilizado).
+
+// ----- ----- ----- ----- ----- ----- ----- ----- */
+
 // inicia uma lista de linhas previamente alocada
 void inicia_lista_linhas(ListaLinhas* lista);
 
@@ -21,7 +37,7 @@ void finaliza_lista_linhas(ListaLinhas* lista);
 ListaLinhas* criar_lista_linhas();
 
 // finaliza e libera uma lista de linhas alocada na heap
-void deletar_lista_linhas(ListaLinhas* lista);
+void deletar_lista_linhas(ListaLinhas** lista);
 
 // insere uma linha na lista de linhas
 int inserir_lista_linhas(ListaLinhas_No** base, char* linha);

@@ -26,9 +26,11 @@ ListaLinhas* criar_lista_linhas() {
 	return lista;
 }
 
-void deletar_lista_linhas(ListaLinhas* lista) {
-	finaliza_lista_linhas(lista);
-	free((void*) lista);
+void deletar_lista_linhas(ListaLinhas** lista) {
+	if (lista == NULL || *lista == NULL) return;
+	finaliza_lista_linhas(*lista);
+	free((void*) *lista);
+	*lista = NULL;
 }
 
 int inserir_lista_linhas(ListaLinhas_No** base, char* linha) {

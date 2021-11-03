@@ -55,7 +55,7 @@ int temporizar(char** linhas, unsigned int qtd_linhas,
 		ListaLinhas_No** base = &lista->base;
 		for (unsigned int idx = 0; idx < qtd_linhas; ++idx) {
 			if (inserir_lista_linhas(base, linhas[idx]) != 0) {
-				deletar_lista_linhas(lista);
+				deletar_lista_linhas(&lista);
 				*err_alg = 0;
 				return -1;
 			}
@@ -66,7 +66,7 @@ int temporizar(char** linhas, unsigned int qtd_linhas,
 		*err_alg = alg->func.alg_lista(lista, qtd_linhas);
 		t1 = clock();
 
-		deletar_lista_linhas(lista);
+		deletar_lista_linhas(&lista);
 	}
 
 	*tempo = (tempo_t) (t1 - t0) / CLOCKS_PER_SEC;
