@@ -5,6 +5,28 @@
 #include <stdlib.h>
 #include <string.h>
 
+/**
+ * temporiza o algoritimo de ordenação usando as
+ * linhas fornecidas e retorna o tempo de excução.
+ *
+ * NOTA:
+ *   faz uma cópia interna da lista de linhas,
+ *   preservando a lista fornecida.
+ *
+ * AVISO:
+ *   resultado indefinido se linhas, alg,
+ *   tempo ou err_alg forem NULL.
+ *
+ * @param linhas as linhas a serem ordenadas
+ * @param qtd_linhas a quantidade de linhas fornecidas
+ * @param alg o algoritimo a ser temporizado
+ * @param tempo o pointeiro usado para
+ *      retornar o tempo de execução.
+ * @param err_alg ponteiro usado para
+ *      retornar o código de erro do
+ *      algoritimo usado se ele falhar.
+ *
+ */
 int temporizar(char** linhas, unsigned int qtd_linhas,
 		Algoritimo* alg, tempo_t* tempo, int* err_alg) {
 
