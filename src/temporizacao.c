@@ -6,18 +6,21 @@
 #include <string.h>
 
 int temporizar(char** linhas, unsigned int qtd_linhas,
-		Algoritimo alg, tempo_t* tempo) {
+		Algoritimo* alg, tempo_t* tempo, int* err_alg) {
 
 	clock_t t0, t1;
-	if (alg.tipo == ALG_VETOR) {
+	if (alg->tipo == ALG_VETOR) {
 
 		char** linhas_copia = malloc(qtd_linhas * sizeof(char*));
-		if (linhas_copia == NULL) return -1;
+		if (linhas_copia == NULL) {
+			*err_alg = 0;
+			return -1;
+		}
 
 		memcpy(linhas_copia, linhas, qtd_linhas);
 
 		t0 = clock();
-		alg.func.alg_vetor(linhas_copia, qtd_linhas);
+		*err_alg = alg->func.alg_vetor(linhas_copia, qtd_linhas);
 		t1 = clock();
 
 		free((void*) linhas_copia);
@@ -31,18 +34,19 @@ int temporizar(char** linhas, unsigned int qtd_linhas,
 		for (unsigned int idx = 0; idx < qtd_linhas; ++idx) {
 			if (inserir_lista_linhas(base, linhas[idx]) != 0) {
 				deletar_lista_linhas(lista);
+				*err_alg = 0;
 				return -1;
 			}
 			base = &(*base)->proximo;
 		}
 
 		t0 = clock();
-		alg.func.alg_lista(lista, qtd_linhas);
+		*err_alg = alg->func.alg_lista(lista, qtd_linhas);
 		t1 = clock();
 
 		deletar_lista_linhas(lista);
 	}
 
 	*tempo = (tempo_t) (t1 - t0) / CLOCKS_PER_SEC;
-	return 0;
+	return (*err_alg != 0) ? -2:0;
 }
