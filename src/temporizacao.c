@@ -39,7 +39,7 @@ int temporizar(char** linhas, unsigned int qtd_linhas,
 			return -1;
 		}
 
-		memcpy(linhas_copia, linhas, qtd_linhas);
+		memcpy(linhas_copia, linhas, qtd_linhas * sizeof(char*));
 
 		t0 = clock();
 		*err_alg = alg->func.alg_vetor(linhas_copia, qtd_linhas);
