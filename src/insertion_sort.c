@@ -4,9 +4,9 @@
 #include <stdio.h>
 
 int insertion_sort(ListaLinhas* lista, unsigned int qtd_int){
-    ListaLinhas_No** no_linha = &(lista->base);
-    while  (*no_linha != NULL)
-    {
+	ListaLinhas_No** no_linha = &(lista->base);
+	while  (*no_linha != NULL)
+	{
 		ListaLinhas_No** no_linha2 = &(lista->base);
 		int movido = 0;
 		while (no_linha2 != no_linha)
@@ -20,9 +20,9 @@ int insertion_sort(ListaLinhas* lista, unsigned int qtd_int){
 			no_linha2 = &((*no_linha2)->proximo);
 		}
 		if (!movido) no_linha = &((*no_linha)->proximo);
-    }
+	}
 
-    return 0;
+	return 0;
 }
 
 Algoritimo alg_insert_sort = { ALG_LISTA, .func.alg_lista = insertion_sort };
