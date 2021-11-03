@@ -71,6 +71,9 @@ int mover_lista_linhas(ListaLinhas_No** dest, ListaLinhas_No** orig) {
 int concat_lista_linhas(ListaLinhas* restrict dest, ListaLinhas* restrict orig) {
 	if (dest == NULL || orig == NULL) return -1;
 
+	// concatenação de lista vazia
+	if (orig->base == NULL && orig->fim == NULL) return 0;
+
 	if (dest->fim == NULL) {
 		// transeferência simples
 		dest->base = orig->base;
