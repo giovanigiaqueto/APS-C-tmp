@@ -30,4 +30,6 @@ $(OBJDIR)/quick_sort.o: \
 $(OBJDIR)/select_sort.o: \
 	$(addprefix $(SRCDIR)/, select_sort.c select_sort.h algoritimo.h)
 
+$(OBJDIR)/bucket_sort.o: \
+	$(addprefix $(SRCDIR)/, bucket_sort.c bucket_sort.h insertion_sort.h algoritimo.h lista_linhas.h)
 
