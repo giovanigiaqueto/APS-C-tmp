@@ -3,7 +3,7 @@
 
 #include "algoritimo.h"
 
-extern Algoritimo alg_bucket_sort;
+extern const Algoritimo alg_bucket_sort;
 
 /**
  * algoritimo de ordenação bucket sort

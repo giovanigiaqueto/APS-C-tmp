@@ -1,7 +1,11 @@
 
 #include "quick_sort.h"
 
-Algoritimo alg_quick_sort = { ALG_VETOR, .func.alg_vetor = ordenar_quick_sort };
+const Algoritimo alg_quick_sort = {
+	.nome = "Quick Sort",
+	.tipo = ALG_VETOR,
+	.func.alg_vetor = ordenar_quick_sort
+};
 
 #include <string.h>
 #include <stdlib.h>

@@ -4,7 +4,7 @@
 #include "algoritimo.h"
 #include "lista_linhas.h"
 
-extern Algoritimo alg_insert_sort;
+extern const Algoritimo alg_insert_sort;
 
 int insertion_sort(ListaLinhas* lista, unsigned int qtd_int);
 

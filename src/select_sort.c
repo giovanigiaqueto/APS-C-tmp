@@ -3,7 +3,11 @@
 
 #include <string.h>
 
-Algoritimo alg_select_sort = { ALG_VETOR, .func.alg_vetor = ordenar_select_sort };
+const Algoritimo alg_select_sort = {
+	.nome = "Select Sort",
+	.tipo = ALG_VETOR,
+	.func.alg_vetor = ordenar_select_sort
+};
 
 int ordenar_select_sort(char** linhas, unsigned int qtd_linhas){
 

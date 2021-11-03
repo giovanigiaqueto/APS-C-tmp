@@ -198,5 +198,8 @@ dealoc_baldes:
 
 // informações sobre o algoritimo para
 // execução pelo módulo de temporização
-Algoritimo alg_bucket_sort = { ALG_LISTA, .func.alg_lista = bucket_sort };
-
+const Algoritimo alg_bucket_sort = {
+	.nome = "Bucket Sort",
+	.tipo = ALG_LISTA,
+	.func.alg_lista = bucket_sort
+};

@@ -3,7 +3,7 @@
 
 #include "algoritimo.h"
 
-extern Algoritimo alg_quick_sort;
+extern const Algoritimo alg_quick_sort;
 
 int ordenar_select_sort(char** linhas, unsigned int qtd_linhas);
 

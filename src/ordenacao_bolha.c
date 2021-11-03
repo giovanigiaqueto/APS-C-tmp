@@ -3,7 +3,11 @@
 
 #include <string.h>
 
-Algoritimo alg_buble_sort = { ALG_VETOR, .func.alg_vetor = ordenar_bolha };
+const Algoritimo alg_buble_sort = {
+	.nome = "Bubble Sort",
+	.tipo = ALG_VETOR,
+	.func.alg_vetor = ordenar_bolha
+};
 
 int ordenar_bolha(char** linhas, unsigned int qtd_linhas) {
 	int repetir;

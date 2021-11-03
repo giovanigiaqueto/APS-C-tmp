@@ -24,6 +24,7 @@ typedef union FuncAlgoritimo {
 // estrutura com informações gerêricas de cada algoritimo,
 // deve ser definida em cada módulo contendo uma função de ordenação.
 typedef struct Algoritimo {
+	const char*    nome;
 	TipoAlgoritimo tipo;
 	FuncAlgoritimo func;
 } Algoritimo;
