@@ -1,0 +1,4 @@
+# ignora arquivos binários .o nessa pasta
+*.o
+# não ignore esse arquivo
+!.gitignore

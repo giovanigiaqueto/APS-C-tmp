@@ -1,7 +1,7 @@
 #ifndef __BUCKET_SORT_H
 #define __BUCKET_SORT_H
 
-#include "algoritimo.h"
+#include "../algoritimo.h"
 
 extern const Algoritimo alg_bucket_sort;
 

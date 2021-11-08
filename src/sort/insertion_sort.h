@@ -1,8 +1,8 @@
 #ifndef __INSERTION_SORT_H
 #define __INSERTION_SORT_H
 
-#include "algoritimo.h"
-#include "lista_linhas.h"
+#include "../algoritimo.h"
+#include "../lista_linhas.h"
 
 extern const Algoritimo alg_insertion_sort;
 
