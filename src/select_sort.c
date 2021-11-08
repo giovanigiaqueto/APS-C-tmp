@@ -6,10 +6,10 @@
 const Algoritimo alg_select_sort = {
 	.nome = "Select Sort",
 	.tipo = ALG_VETOR,
-	.func.alg_vetor = ordenar_select_sort
+	.func.alg_vetor = select_sort
 };
 
-int ordenar_select_sort(char** linhas, unsigned int qtd_linhas){
+int select_sort(char** linhas, unsigned int qtd_linhas){
 
 	for (int i = 0; i < qtd_linhas; ++i) {
 		unsigned int menor = i;

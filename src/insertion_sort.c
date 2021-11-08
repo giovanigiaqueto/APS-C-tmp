@@ -25,7 +25,7 @@ int insertion_sort(ListaLinhas* lista, unsigned int qtd_int){
 	return 0;
 }
 
-const Algoritimo alg_insert_sort = {
+const Algoritimo alg_insertion_sort = {
 	.nome = "Insertion Sort",
 	.tipo = ALG_LISTA,
 	.func.alg_lista = insertion_sort

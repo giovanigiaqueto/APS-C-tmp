@@ -1,15 +1,15 @@
 
-#include "ordenacao_bolha.h"
+#include "bubble_sort.h"
 
 #include <string.h>
 
-const Algoritimo alg_buble_sort = {
+const Algoritimo alg_bubble_sort = {
 	.nome = "Bubble Sort",
 	.tipo = ALG_VETOR,
-	.func.alg_vetor = ordenar_bolha
+	.func.alg_vetor = bubble_sort
 };
 
-int ordenar_bolha(char** linhas, unsigned int qtd_linhas) {
+int bubble_sort(char** linhas, unsigned int qtd_linhas) {
 	int repetir;
 	do {
 		repetir = 0;
