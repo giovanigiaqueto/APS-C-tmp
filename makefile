@@ -10,7 +10,8 @@ CFLAGS=-Wall -std=c11 -I$(INCDIR)/
 # modulos e executável principal
 modulos=$(addprefix $(OBJDIR)/, main.o ler_arquivo.o lista_linhas.o \
 	bubble_sort.o select_sort.o quick_sort.o insertion_sort.o \
-	binary_insertion_sort.o merge_sort.o bucket_sort.o temporizacao.o)
+	binary_insertion_sort.o merge_sort.o bucket_sort.o temporizacao.o \
+	geracao_dados.o)
 alvo=main
 
 # regra principal de compilação
