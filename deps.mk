@@ -1,10 +1,14 @@
 
 # ===== dependências do arquivo principal =====
 
-$(OBJDIR)/main.o: $(SRCDIR)/main.c
+$(OBJDIR)/main.o: \
+	$(addprefix $(SRCDIR)/, main.c cmd_params.h)
 
 
 # ===== dependências dos módulos auxíliares =====
+
+$(OBJDUR)/cmd_params.o: \
+	$(addprefix $(SRCDIR)/, cmd_params.c cmd_params.h ler_arquivos.h)
 
 $(OBJDIR)/algoritimo.o: \
 	$(addprefix $(SRCDIR)/, algoritimo.c algoritimo.h lista_linhas.h)

@@ -9,7 +9,7 @@ CFLAGS=-Wall -std=c11 -I$(INCDIR)/
 
 # modulos e executável principal
 modulos=$(addprefix $(OBJDIR)/, \
-	main.o ler_arquivo.o lista_linhas.o \
+	main.o cmd_params.o ler_arquivo.o lista_linhas.o \
 	temporizacao.o geracao_dados.o algs_ordenacao.o \
 	$(addprefix sort/, \
 		bubble_sort.o select_sort.o quick_sort.o insertion_sort.o \
