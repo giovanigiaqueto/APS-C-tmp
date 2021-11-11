@@ -28,7 +28,7 @@
  *
  */
 int temporizar(char** linhas, unsigned int qtd_linhas,
-		Algoritimo* alg, tempo_t* tempo, int* err_alg) {
+		const Algoritimo* alg, tempo_t* tempo, int* err_alg) {
 
 	clock_t t0, t1;
 	if (alg->tipo == ALG_VETOR) {

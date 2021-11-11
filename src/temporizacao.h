@@ -6,6 +6,6 @@
 typedef float tempo_t;
 
 int temporizar(char** linhas, unsigned int qtd_linhas,
-		Algoritimo* alg, tempo_t* tempo, int* err_alg);
+		const Algoritimo* alg, tempo_t* tempo, int* err_alg);
 
 #endif
