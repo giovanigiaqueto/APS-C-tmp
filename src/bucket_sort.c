@@ -106,10 +106,6 @@ int bucket_sort(ListaLinhas* linhas, unsigned int qtd_linhas) {
 		if (menor == NULL || strcmp(no->linha, menor) < 0) menor = no->linha;
 	}
 
-	// evita erros catastróficos (e.g. seg. fault)
-	if (maior == NULL || menor == NULL) return -1;
-	if (maior[0] == 0 || menor[0] == 0) return -1;
-
 	// extrai as chaves da maior e menor linha
 	unsigned int chave_menor;
 	unsigned int chave_maior;
