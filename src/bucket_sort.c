@@ -98,6 +98,9 @@ int bucket_sort(ListaLinhas* linhas, unsigned int qtd_linhas) {
 	// codigo de erro retornado
 	int codigo_erro = 0;
 
+	// evita ordenar uma lista vazia ou já ordenada
+	if (qtd_linhas < 2) return 0;
+
 	// procura o maior e menor valor da lista de linhas
 	char* maior = NULL;
 	char* menor = NULL;
