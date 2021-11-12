@@ -2,7 +2,7 @@
 # ===== dependências do arquivo principal =====
 
 $(OBJDIR)/main.o: \
-	$(addprefix $(SRCDIR)/, main.c cmd_params.h)
+	$(addprefix $(SRCDIR)/, main.c cmd_params.h resultados.h)
 
 
 # ===== dependências dos módulos auxíliares =====
