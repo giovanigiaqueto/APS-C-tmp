@@ -11,6 +11,7 @@ CFLAGS=-Wall -std=c11 -I$(INCDIR)/
 modulos=$(addprefix $(OBJDIR)/, \
 	main.o cmd_params.o ler_arquivo.o lista_linhas.o \
 	temporizacao.o geracao_dados.o algs_ordenacao.o \
+	resultados.o \
 	$(addprefix sort/, \
 		bubble_sort.o select_sort.o quick_sort.o insertion_sort.o \
 		binary_insertion_sort.o merge_sort.o bucket_sort.o \
