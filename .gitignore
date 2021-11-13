@@ -4,3 +4,4 @@
 .directory
 # ignora o executável principal
 main
+benchmark

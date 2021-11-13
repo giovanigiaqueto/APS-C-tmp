@@ -16,7 +16,7 @@ modulos=$(addprefix $(OBJDIR)/, \
 		binary_insertion_sort.o merge_sort.o bucket_sort.o \
 	) \
 )
-alvo=main
+alvo=benchmark
 
 # regra principal de compilação
 all: $(alvo)
