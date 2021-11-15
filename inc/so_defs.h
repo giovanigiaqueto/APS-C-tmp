@@ -14,5 +14,6 @@
 #ifdef __posix
 	#define UNIX_OS
 #endif
+#endif
 
 #endif
