@@ -74,6 +74,10 @@ char** mudar_dados_embaralhar(char** linhas, unsigned int qtd_linhas) {
 
 int main(int argc, char* argv[]) {
 
+	/* -------------- inicializacao -------------- */
+
+	init_geracao_dados();
+
 	/* ---------- leitura de parâmetros ---------- */
 
 	Parametros params;
