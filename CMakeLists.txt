@@ -5,6 +5,11 @@ cmake_minimum_required(VERSION 3.10)
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_STANDARD_REQUIRED True)
 
+# bibliotecas necessárias
+find_package(OpenGL REQUIRED)
+find_package(GLUT REQUIRED)
+find_package(GLEW REQUIRED)
+
 # pastas
 set(SRCDIR "src")
 set(INCDIR "inc")
@@ -35,6 +40,10 @@ include("deps/CMakeDeps.txt")
 # regra de como linkar o main
 target_link_libraries(
     benchmark
+    ${OPENGL_gl_LIBRARY}
+    ${OPENGL_glu_LIBRARY}
+    ${GLUT_LIBRARIES}
+    ${GLEW_LIBRARIES}
     ${MODULE_LIST}
 )
 

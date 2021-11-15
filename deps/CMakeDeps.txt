@@ -5,3 +5,4 @@ set(MODULE_LIST)
 # dependencias dos módulos auxiliares e de ordenação
 include("deps/CMakeDeps-aux.txt")
 include("deps/CMakeDeps-sort.txt")
+include("deps/CMakeDeps-opengl.txt")

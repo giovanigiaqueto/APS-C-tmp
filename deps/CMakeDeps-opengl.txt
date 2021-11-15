@@ -1,0 +1,43 @@
+
+add_library(
+    renderer OBJECT
+    "${SRCDIR}/opengl/renderer.c"
+    "${SRCDIR}/opengl/renderer.h"
+    "${SRCDIR}/opengl/opengl-pch.h"
+    "${SRCDIR}/opengl/renderer_defs.h"
+    "${SRCDIR}/opengl/grafico.h"
+    "${SRCDIR}/resultados.h"
+)
+
+add_library(
+    grafico OBJECT
+    "${SRCDIR}/opengl/grafico.c"
+    "${SRCDIR}/opengl/grafico.h"
+    "${SRCDIR}/opengl/opengl-pch.h"
+    "${SRCDIR}/opengl/renderer_defs.h"
+    "${SRCDIR}/aleatorio.h"
+    "${SRCDIR}/temporizacao.h"
+    "${SRCDIR}/resultados.h"
+)
+target_link_libraries(grafico -lm)
+
+add_library(
+    opengl-pch OBJECT
+    "${SRCDIR}/opengl/opengl-pch.c"
+    "${SRCDIR}/opengl/opengl-pch.h"
+    "${INCDIR}/so_defs.h"
+    "${GLUT_INCLUDE_DIR}/GL/freeglut.h"
+    "${GLEW_INCLUDE_DIRS}/GL/glew.h"
+)
+target_include_directories(
+    opengl-pch PUBLIC
+    ${GLUT_INCLUDE_DIR}
+    ${GLEW_INCLUDE_DIRS}
+)
+
+list(
+    APPEND MODULE_LIST
+    renderer
+    opengl-pch
+    grafico
+)

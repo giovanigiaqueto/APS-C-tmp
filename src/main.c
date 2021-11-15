@@ -12,6 +12,7 @@
 #include "temporizacao.h"
 #include "resultados.h"
 #include "aleatorio.h"
+#include "opengl/renderer.h"
 
 const char* TEXTO_AJUDA = {
 	"uso: benchmark [opcao...] [algoritimo...]\n"
