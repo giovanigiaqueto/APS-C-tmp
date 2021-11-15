@@ -10,6 +10,12 @@ $(OBJDIR)/main.o: \
 $(OBJDUR)/cmd_params.o: \
 	$(addprefix $(SRCDIR)/, cmd_params.c cmd_params.h ler_arquivos.h)
 
+$(OBJDIR)/aleatorio.o: \
+	$(addprefix $(SRCDIR)/, aleatorio.c aleatorio.h)
+
+$(OBJDIR)/geracao_dados.o: \
+	$(addprefix $(SRCDIR)/, geracao_dados.c geracao_dados.h aleatorio.h)
+
 $(OBJDIR)/algoritimo.o: \
 	$(addprefix $(SRCDIR)/, algoritimo.c algoritimo.h lista_linhas.h)
 

@@ -11,6 +11,7 @@
 #include "algs_ordenacao.h"
 #include "temporizacao.h"
 #include "resultados.h"
+#include "aleatorio.h"
 
 const char* TEXTO_AJUDA = {
 	"uso: benchmark [opcao...] [algoritimo...]\n"
@@ -87,7 +88,7 @@ int main(int argc, char* argv[]) {
 
 	/* -------------- inicializacao -------------- */
 
-	init_geracao_dados();
+	inic_aleatorio();
 
 	/* ---------- leitura de parâmetros ---------- */
 

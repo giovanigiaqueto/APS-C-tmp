@@ -2,6 +2,7 @@
 /* ======================= INCLUDES ======================= */
 
 #include "geracao_dados.h"
+#include "aleatorio.h"
 
 #include <stdlib.h>
 #include <limits.h>
@@ -32,15 +33,6 @@ const ConfGeracaoDados* conf_alternativa = NULL;
 
 /* ============= CONFIGURAÇÃO E INICIALIZAÇÃO ============= */
 
-int iniciado = 0;
-void init_geracao_dados() {
-	if (iniciado) return;
-	iniciado = 1;
-
-	srand(time(NULL));
-	return;
-}
-
 int validar_conf_geracao_dados(const ConfGeracaoDados* conf) {
 	if (conf->tamanho_linha_min >= conf->tamanho_linha_max) return -1;
 	if (conf->tamanho_linha_max == 0) return -1;
@@ -65,57 +57,9 @@ const ConfGeracaoDados* get_conf_geracao_dados() {
 
 /* ==================== GERAÇÃO DE DADOS ==================== */
 
-#if ULONG_MAX > UINT_MAX
-static inline long randlong() {
-	return (((long) rand()) & ((long) ~0)) | (((long) rand()) << (8 * sizeof(int)));
-}
-#define __MY_LONG_RAND_MAX ((((long) RAND_MAX) & ((long) ~0)) | (((long) RAND_MAX) << (8 * sizeof(int))))
-#else
-
-static inline long randlong() {
-	return (long) rand();
-}
-#define __MY_LONG_RAND_MAX ((long) RAND_MAX)
-#endif
-
-/**
- * geração de números aleatórios entre min e max, com distribuição uniforme.
- *
- * @param int valor minimo a ser gerado (incluso)
- * @param int valor máximo a ser gerado (não incluso)
- *
- * @returns valor aleatório gerado
- *
- * NOTA:
- *   fazer o módulo de rand() pelo tamanho da amostra necessária
- *   não gera números aleatórios uniformemente distribuídos,
- *   pois RAND_MAX raramente será divisível pelo tamanho
- *   da amostra, fazendo com que o módulo retorne mais valores
- *   próximos ao zero (principalmente se RAND_MAX for pequeno).
- *
- *   por conta disso essa implementação gera valores aleatórios
- *   maiores, descarta parte deles para que o resultado seja
- *   bem distribuído, e depois faz o módulo.
- */
-int gerar_randint(int min, int max) {
-	// calcula as regiões externa e interna à amostra,
-	// necessárias para gerar o número aleatório
-	long range = ((long) max) - ((long) min);
-	long cutoff = range * (__MY_LONG_RAND_MAX / range);
-
-	// gera o número na faixa necessária que é divisível por 'range'
-	long valor;
-	do {
-		valor = randlong();
-	} while(valor > cutoff || valor < -cutoff);
-
-	// retorna o número gerado
-	return min + (valor % range);
-}
-
 /**
  * implementação do algoritimo Fisher-Yates
- * para embaralhamento de vetores
+ * para embaralhamento de vetores de linhas
  */
 void embaralhar_dados(char** linhas, unsigned int qtd_linhas) {
 	if (linhas == NULL || qtd_linhas <= 1) return;
