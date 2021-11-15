@@ -4,6 +4,7 @@
 #include "geracao_dados.h"
 
 #include <stdlib.h>
+#include <limits.h>
 #include <time.h>
 
 #include <stdio.h>
@@ -64,10 +65,18 @@ const ConfGeracaoDados* get_conf_geracao_dados() {
 
 /* ==================== GERAÇÃO DE DADOS ==================== */
 
+#if ULONG_MAX > UINT_MAX
 static inline long randlong() {
 	return (((long) rand()) & ((long) ~0)) | (((long) rand()) << (8 * sizeof(int)));
 }
 #define __MY_LONG_RAND_MAX ((((long) RAND_MAX) & ((long) ~0)) | (((long) RAND_MAX) << (8 * sizeof(int))))
+#else
+
+static inline long randlong() {
+	return (long) rand();
+}
+#define __MY_LONG_RAND_MAX ((long) RAND_MAX)
+#endif
 
 /**
  * geração de números aleatórios entre min e max, com distribuição uniforme.
