@@ -368,7 +368,7 @@ int ler_parametros(int argc, char* argv[], Parametros* params) {
 		// libera o buffer do arquivo e realoca memória para
 		// liberar espaço não usado no buffer de quantidade de linhas
 		free((void*) linhas);
-		params->qtd_linhas = realloc(qtd_linhas_vetor, contador);
+		params->qtd_linhas = realloc(qtd_linhas_vetor, contador * sizeof(unsigned int));
 		params->qtd_linhas_tamanho = contador;
 	}
 
