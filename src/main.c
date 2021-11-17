@@ -60,16 +60,27 @@ char** mudar_dados_vazio(char** linhas, unsigned int qtd_linhas) {
 
 // gera os dados novamente
 char** mudar_dados_gerar(char** linhas, unsigned int qtd_linhas) {
-	free((void*) linhas);
 	return gerar_dados(qtd_linhas);
 }
 
 // embaralha os dados
 char** mudar_dados_embaralhar(char** linhas, unsigned int qtd_linhas) {
-	printf("A1\n");
 	embaralhar_dados(linhas, qtd_linhas);
-	printf("B1\n");
 	return linhas;
+}
+
+// não faz nada
+char** limpar_dados_vazio(char** linhas, unsigned int qtd_linhas) {
+	return linhas;
+}
+
+// limpa os dados
+char** limpar_dados_liberar(char** linhas, unsigned int qtd_linhas) {
+	for (unsigned int i = 0; i < qtd_linhas; ++i) {
+		free((void*) linhas[i]);
+	}
+	free((void*) linhas);
+	return NULL;
 }
 
 int main(int argc, char* argv[]) {
@@ -98,6 +109,7 @@ int main(int argc, char* argv[]) {
 	char** linhas_arquivo = NULL;
 	char** linhas = NULL;
 	char** (*mudar_dados)(char**, unsigned int);
+	char** (*limpar_dados)(char**, unsigned int) = limpar_dados_vazio;
 	if (params.entrada != NULL) {
 		// lê o arquivo de entrada
 		linhas_arquivo = ler_arquivo(params.entrada, &qtd_linhas_arquivo);
@@ -135,6 +147,7 @@ int main(int argc, char* argv[]) {
 	} else if ((params.flags & PARAM_FLAG_ENTRADA_GERADA) == PARAM_FLAG_ENTRADA_GERADA) {
 		// dados gerados aleatóriamente
 		mudar_dados = mudar_dados_gerar;
+		limpar_dados = limpar_dados_liberar;
 	} else {
 		// paramêtros faltando, mostra o texto de ajuda
 		ajuda();
@@ -166,6 +179,12 @@ int main(int argc, char* argv[]) {
 
 	for (unsigned int i = 0; i < params.qtd_linhas_tamanho; ++i) {
 		unsigned int qtd_linhas = params.qtd_linhas[i];
+		if (qtd_linhas == 0) {
+			fprintf(stderr,
+				"erro: a quantidade de linhas eh zero, parando\n"
+			);
+			break;
+		}
 		for (unsigned int j = 0; j < qtd_resultados; ++j) {
 			ResultadoAlgoritimo* res = &resultados[j];
 			tempo_t tempo = 0;
@@ -182,6 +201,7 @@ int main(int argc, char* argv[]) {
 						res->algoritimo->nome, err, res->erro);
 					break;
 				}
+				linhas = limpar_dados(linhas, qtd_linhas);
 				tempo += tempo_frac;
 			}
 			if (res->erro != 0) continue;
