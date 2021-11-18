@@ -134,6 +134,17 @@ int main(int argc, char* argv[]) {
 					max_linhas);
 				exit(EXIT_FAILURE);
 			}
+		} else {
+			unsigned int* tmp = malloc(sizeof(unsigned int));
+			if (tmp == NULL) {
+				fprintf(stderr, "erro: sem memoria\n");
+				exit(EXIT_FAILURE);
+			}
+			free((void*) params.qtd_linhas);
+			*tmp = qtd_linhas_arquivo;
+
+			params.qtd_linhas = tmp;
+			params.qtd_linhas_tamanho = 1;
 		}
 		if ((params.flags & PARAM_FLAG_ENTRADA_EMBARALHADA) == PARAM_FLAG_ENTRADA_EMBARALHADA) {
 			// embaralha a entrada do arquivo antes
