@@ -10,7 +10,7 @@ const Algoritimo* const LISTA_ALGORITIMOS[] = {
 	&alg_insertion_sort,
 	&alg_binary_insertion_sort,
 	&alg_merge_sort,
-//	&alg_heap_sort,
+	&alg_heap_sort,
 	&alg_bucket_sort
 };
 const unsigned int NUM_ALGORITIMOS = \

@@ -9,7 +9,7 @@
 #include "sort/insertion_sort.h"
 #include "sort/binary_insertion_sort.h"
 #include "sort/merge_sort.h"
-//#include "sort/heap_sort.h"
+#include "sort/heap_sort.h"
 #include "sort/bucket_sort.h"
 
 extern const Algoritimo* const LISTA_ALGORITIMOS[];

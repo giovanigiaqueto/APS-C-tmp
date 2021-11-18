@@ -14,7 +14,7 @@ modulos=$(addprefix $(OBJDIR)/, \
 	aleatorio.o resultados.o \
 	$(addprefix sort/, \
 		bubble_sort.o select_sort.o quick_sort.o insertion_sort.o \
-		binary_insertion_sort.o merge_sort.o bucket_sort.o \
+		binary_insertion_sort.o merge_sort.o bucket_sort.o heap_sort.o \
 	) \
 )
 alvo=benchmark

@@ -49,3 +49,5 @@ $(OBJDIR)/merge_sort.o: \
 $(OBJDIR)/bucket_sort.o: \
 	$(addprefix $(SRCDIR)/, bucket_sort.c bucket_sort.h insertion_sort.h algoritimo.h lista_linhas.h)
 
+$(OBJDIR)/heap_sort.o: \
+	$(addprefix $(SRCDIR)/, heap_sort.c heap_sort.h algoritimo.h)
