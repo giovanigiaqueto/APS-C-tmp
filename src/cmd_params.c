@@ -110,6 +110,8 @@ int ler_parametros_bruto(int argc, char* argv[], ParametrosBruto* params) {
 			} else if (strcmp(opcao, "a") == 0 || strcmp(opcao, "-arquivo-entrada") == 0) {
 				if (++curr_arg >= argc) { erro = ERRO_PARAM_FALTANDO; break; }
 				params->entrada = argv[curr_arg];
+			} else if (strcmp(opcao, "j") == 0 || strcmp(opcao, "-janela") == 0) {
+				params->flags |= PARAM_FLAG_JANELA;
 			} else if (strcmp(opcao, "n") == 0 || strcmp(opcao, "-qtd-linhas") == 0) {
 				if (++curr_arg >= argc) {
 					erro |= ERRO_PARAM_FALTANDO | ERRO_PARAM_QTD_LINHAS;

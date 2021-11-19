@@ -9,6 +9,7 @@
 #define PARAM_FLAG_REPETICOES  0x04
 #define PARAM_FLAG_QTD_LINHAS  0x08
 #define PARAM_FLAG_ENTRADA     0x10
+#define PARAM_FLAG_JANELA      0x20
 
 #define ERRO_SEM_ERRO         0
 #define ERRO_SEM_MEMORIA      1

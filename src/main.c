@@ -26,6 +26,8 @@ const char* TEXTO_AJUDA = {
 	"\n"
 	"parametros:\n"
 	"  --ajuda, --help, -h     mostra essa mensagen de ajuda\n"
+	"  --janela, -j            mostra os resultados em modo gráfico\n"
+	"                          (janela) ao invés do modo textual (terminal)\n"
 	"  --repeticoes, -r        quantidade de vezes que cada algoritimo\n"
 	"                          sera executado para que o tempo possa ser\n"
 	"                          calculado, usando a media entre os tempos\n"
@@ -222,12 +224,21 @@ int main(int argc, char* argv[]) {
 		}
 	}
 
-	for (unsigned int i = 0; i < params.qtd_linhas_tamanho; ++i) {
-		printf("qtd linhas: %u\n\n", params.qtd_linhas[i]);
-		for (unsigned int j = 0; j < qtd_resultados; ++j) {
-			printf("%24s : %4fs\n", resultados[j].algoritimo->nome, resultados[j].tempos[i]);
+	if ((params.flags & PARAM_FLAG_JANELA) == PARAM_FLAG_JANELA) {
+		if (iniciar_opengl(&argc, argv) != 0) {
+			fprintf(stderr, "erro: falha na inicializacao da janela\n");
+		} else if (opengl_resultados_algoritimos(resultados,
+					params.qtd_linhas, qtd_resultados, params.qtd_linhas_tamanho) != 0) {
+			fprintf(stderr, "erro: falha em carregar os resultados na janela\n");
+		} else mainloop_opengl();
+	} else {
+		for (unsigned int i = 0; i < params.qtd_linhas_tamanho; ++i) {
+			printf("qtd linhas: %u\n\n", params.qtd_linhas[i]);
+			for (unsigned int j = 0; j < qtd_resultados; ++j) {
+				printf("%24s : %4fs\n", resultados[j].algoritimo->nome, resultados[j].tempos[i]);
+			}
+			printf("\n");
 		}
-		printf("\n");
 	}
 
 	/* ---------- liberação de memória ---------- */
