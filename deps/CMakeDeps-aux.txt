@@ -1,0 +1,72 @@
+
+add_library(
+    ler_arquivo OBJECT
+    "${SRCDIR}/ler_arquivo.c"
+    "${SRCDIR}/ler_arquivo.h"
+)
+
+add_library(
+    temporizacao OBJECT
+    "${SRCDIR}/temporizacao.c"
+    "${SRCDIR}/temporizacao.h"
+)
+
+add_library(
+    lista_linhas OBJECT
+    "${SRCDIR}/lista_linhas.c"
+    "${SRCDIR}/lista_linhas.h"
+)
+
+add_library(
+    geracao_dados OBJECT
+    "${SRCDIR}/geracao_dados.c"
+    "${SRCDIR}/geracao_dados.h"
+    "${SRCDIR}/aleatorio.h"
+)
+
+add_library(
+    aleatorio OBJECT
+    "${SRCDIR}/aleatorio.c"
+    "${SRCDIR}/aleatorio.h"
+)
+
+add_library(
+    algs_ordenacao OBJECT
+    "${SRCDIR}/algs_ordenacao.c"
+    "${SRCDIR}/algs_ordenacao.h"
+    "${SRCDIR}/algoritimo.h"
+
+    "${SRCDIR}/sort/bubble_sort.h"
+    "${SRCDIR}/sort/select_sort.h"
+    "${SRCDIR}/sort/quick_sort.h"
+    "${SRCDIR}/sort/insertion_sort.h"
+    "${SRCDIR}/sort/binary_insertion_sort.h"
+    "${SRCDIR}/sort/merge_sort.h"
+    "${SRCDIR}/sort/heap_sort.h"
+    "${SRCDIR}/sort/bucket_sort.h"
+)
+
+add_library(
+    cmd_params OBJECT
+    "${SRCDIR}/cmd_params.c"
+    "${SRCDIR}/cmd_params.h"
+    "${SRCDIR}/ler_arquivo.h"
+)
+
+add_library(
+    resultados OBJECT
+    "${SRCDIR}/resultados.c"
+    "${SRCDIR}/resultados.h"
+)
+
+list(
+    APPEND MODULE_LIST
+    ler_arquivo
+    temporizacao
+    lista_linhas
+    geracao_dados
+    aleatorio
+    algs_ordenacao
+    cmd_params
+    resultados
+)

@@ -1,0 +1,72 @@
+
+add_library(
+    bubble_sort OBJECT
+    "${SRCDIR}/sort/bubble_sort.c"
+    "${SRCDIR}/sort/bubble_sort.h"
+    "${SRCDIR}/algoritimo.h"
+)
+
+add_library(
+    insertion_sort OBJECT
+	"${SRCDIR}/sort/insertion_sort.c"
+    "${SRCDIR}/sort/insertion_sort.h"
+    "${SRCDIR}/algoritimo.h"
+    "${SRCDIR}/lista_linhas.h"
+)
+
+add_library(
+    binary_insertion_sort OBJECT
+	"${SRCDIR}/sort/binary_insertion_sort.c"
+    "${SRCDIR}/sort/binary_insertion_sort.h"
+    "${SRCDIR}/algoritimo.h"
+)
+
+add_library(
+    quick_sort OBJECT
+	"${SRCDIR}/sort/quick_sort.c"
+    "${SRCDIR}/sort/quick_sort.h"
+    "${SRCDIR}/algoritimo.h"
+)
+
+add_library(
+    select_sort OBJECT
+	"${SRCDIR}/sort/select_sort.c"
+    "${SRCDIR}/sort/select_sort.h"
+    "${SRCDIR}/algoritimo.h"
+)
+
+add_library(
+    merge_sort OBJECT
+	"${SRCDIR}/sort/merge_sort.c"
+    "${SRCDIR}/sort/merge_sort.h"
+    "${SRCDIR}/algoritimo.h"
+)
+
+add_library(
+    bucket_sort OBJECT
+    "${SRCDIR}/sort/bucket_sort.c"
+    "${SRCDIR}/sort/bucket_sort.h"
+    "${SRCDIR}/sort/insertion_sort.h"
+    "${SRCDIR}/algoritimo.h"
+    "${SRCDIR}/lista_linhas.h"
+)
+
+add_library(
+    heap_sort OBJECT
+	"${SRCDIR}/sort/heap_sort.c"
+    "${SRCDIR}/sort/heap_sort.h"
+    "${SRCDIR}/sort/heap_sort_impl.h"
+    "${SRCDIR}/algoritimo.h"
+)
+
+list(
+    APPEND MODULE_LIST
+    bubble_sort
+    insertion_sort
+    binary_insertion_sort
+    quick_sort
+    select_sort
+    merge_sort
+    bucket_sort
+    heap_sort
+)

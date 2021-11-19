@@ -5,3 +5,5 @@
 # ignora o executável principal
 main
 benchmark
+# ignora a pasta build
+build
