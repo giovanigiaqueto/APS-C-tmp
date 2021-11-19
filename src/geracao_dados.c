@@ -13,17 +13,22 @@
 /* ================ VARIÁVEIS E CONSTANTES ================ */
 
 const char ALFABETO_PADRAO[] = {\
-		"abcdefghijklmnopqrstuvwxyz" \
-		"abcdefghijklmnopqrstuvwxyz" \
-		"ABCDEFGHIJKLMNOPQRSTUVWXYZ" \
-		"ABCDEFGHIJKLMNOPQRSTUVWXYZ" \
-		"12345678901234567890" \
-		",. " "\0" \
+		'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
+		'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
+		'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
+		'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
+		'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
+		'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
+		'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
+		'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
+		'1', '2', '3', '4', '5', '6', '7', '8', '9', '0',
+		'1', '2', '3', '4', '5', '6', '7', '8', '9', '0',
+		',', '.', ' '
 };
 
 const ConfGeracaoDados conf_padrao = {
-	.tamanho_linha_min = 80,
-	.tamanho_linha_max = 20,
+	.tamanho_linha_min = 20,
+	.tamanho_linha_max = 80,
 
 	.alfabeto = ALFABETO_PADRAO,
 	.tamanho_alfabeto = sizeof(ALFABETO_PADRAO) / sizeof(char)
@@ -76,14 +81,14 @@ char* gerar_linha(const ConfGeracaoDados* conf) {
 	const unsigned int tamanho_linha = gerar_randint(\
 		conf->tamanho_linha_min, conf->tamanho_linha_max);
 
-	char* linha = malloc((tamanho_linha + 1) * sizeof(char*));
+	char* linha = malloc(tamanho_linha + 1);
 	if (linha != NULL) {
 		for (unsigned int i = 0; i < tamanho_linha; ++i) {
 			const unsigned int idx = gerar_randint(0, conf->tamanho_alfabeto);
 			linha[i] = conf->alfabeto[idx];
 		}
+		linha[tamanho_linha] = '\0';
 	}
-	linha[tamanho_linha] = '\0';
 
 	return linha;
 }
